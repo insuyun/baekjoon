@@ -14,11 +14,11 @@ def main():
 
     i = 1
     while True:
-        testcase_file = os.path.join("testcases/tc%d.txt" % i)
+        testcase_file = os.path.join("testcases/input-%d.txt" % i)
         if not os.path.exists(testcase_file):
             break
 
-        expected_file = os.path.join("testcases/exp%d.txt" % i)
+        expected_file = os.path.join("testcases/output-%d.txt" % i)
         assert (os.path.exists(expected_file))
 
         run_test(testcase_file, expected_file)
