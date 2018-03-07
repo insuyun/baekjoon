@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const int kMaxNum = 101 * 2 + 1;
+const int kMaxNum = 10001 * 2 + 1;
 
 int n, m;
 
@@ -18,7 +18,7 @@ vector<int> cc_nodes[kMaxNum];
 int encode(int node) {
   // map -1 --> 101
   if (node <= 0)
-    node = 100 - node;
+    node = 10000 - node;
   return node;
 }
 

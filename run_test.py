@@ -1,12 +1,19 @@
 import os
 import subprocess
+import re
+
+def norm(s):
+    s = re.sub(" \n", "\n", s)
+    while "\r\n" in s:
+        s = s.replace("\r\n", "\n")
+    return s
 
 def run_test(testcase_file, expected_file):
     p = subprocess.Popen("./solve", stdin=open(testcase_file),
             stdout=subprocess.PIPE, stderr=open(os.devnull, "wb"))
     stdout, _ = p.communicate()
     exp = open(expected_file, "r").read()
-    if stdout != exp:
+    if norm(stdout) != norm(exp):
         print("FAIL: %s" % testcase_file)
 
 def main():
