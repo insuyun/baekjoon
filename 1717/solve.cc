@@ -18,7 +18,7 @@ void umerge(int a, int b) {
   int pa = ufind(a);
   int pb = ufind(b);
   if (pa != pb)
-    p[b] = pa;
+    p[pb] = pa;
 }
 
 int main() {
