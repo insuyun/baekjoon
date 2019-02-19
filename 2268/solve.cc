@@ -11,7 +11,7 @@ struct SegmentTree {
     if (left > end || right < start)
       return 0;
 
-    if (start == end)
+    if (left <= start && end <= right)
       return arr[node];
 
     return query(node * 2, start, (start + end) / 2, left, right)
