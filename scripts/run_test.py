@@ -9,6 +9,7 @@ def norm(s):
     return s
 
 def run_test(testcase_file, expected_file):
+    print("Running %s -> Expecting %s" % (testcase_file, expected_file))
     p = subprocess.Popen("./solve", stdin=open(testcase_file),
             stdout=subprocess.PIPE, stderr=open(os.devnull, "wb"))
     stdout, _ = p.communicate()
