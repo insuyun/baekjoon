@@ -5,26 +5,26 @@ using namespace std;
 
 const int MOD = 15746;
 const int MAX = 1000000;
-int cache[MAX];
 
 int tile(int n) {
-  if (cache[n] != -1)
-    return cache[n];
+  if (n == 1) return 1;
+  if (n == 2) return 2;
 
-  if (n == 1)
-    return 1;
+  int a = 1;
+  int b = 2;
+  int c = 0;
 
-  if (n == 2)
-    return 2;
+  for (int i = 2; i < n; i++) {
+    c = (a + b) % MOD;
+    a = b;
+    b = c;
+  }
 
-  int r = (tile(n - 1) + tile(n - 2)) % MOD;
-  cache[n] = r;
-  return cache[n];
+  return c;
 }
 
 int main() {
   int n;
-  memset(cache, -1, sizeof(cache));
   cin >> n;
   cout << tile(n) << "\n";
 }
